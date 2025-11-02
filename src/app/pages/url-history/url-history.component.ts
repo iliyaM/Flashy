@@ -19,4 +19,4 @@ export class UrlHistoryComponent {
   setActive(item: UrlBuild) {
     this.httpService.setSelectedUrlBuild(item)
   }
-  }
+}
