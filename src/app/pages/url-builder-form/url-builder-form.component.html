@@ -1,0 +1,97 @@
+<section class="url-builder-form">
+
+  <h1>URL Builder Form</h1>
+
+  <form [formGroup]="form">
+
+    <!-- BASE URL -->
+    <label for="baseUrl">Base URL</label>
+    <input formControlName="baseUrl" id="baseUrl"/>
+    <app-form-error-message
+      [control]="form.get('baseUrl')"
+      message="Base URL is required or invalid">
+    </app-form-error-message>
+
+    <!-- UTM SOURCE -->
+    <label>UTM source</label>
+    <input formControlName="utmSource"/>
+    <app-form-error-message
+      [control]="form.get('utmSource')"
+      message="UTM Source is required">
+    </app-form-error-message>
+
+    <!-- UTM MEDIUM -->
+    <label>UTM medium</label>
+    <input formControlName="utmMedium"/>
+    <app-form-error-message
+      [control]="form.get('utmMedium')"
+      message="UTM Medium is required">
+    </app-form-error-message>
+
+    <!-- UTM CAMPAIGN -->
+    <label>UTM campaign</label>
+    <input formControlName="utmCampaign"/>
+    <app-form-error-message
+      [control]="form.get('utmCampaign')"
+      message="UTM Campaign is required">
+    </app-form-error-message>
+
+    <!-- DYNAMIC PARAMS -->
+    <h3>Dynamic params:</h3>
+
+    @for (control of params.controls; track control; let index = $index) {
+
+      <div [formGroup]="control" class="param-group">
+
+        <div class="param-container">
+          <label>
+            <p>Param Key:</p>
+            <input formControlName="key"/>
+          </label>
+          <app-form-error-message
+            [control]="control.get('key')"
+            message="Key is required">
+          </app-form-error-message>
+        </div>
+
+        <div class="param-container">
+          <label>
+            <p>Param Value:</p>
+            <input formControlName="value"/>
+          </label>
+          <app-form-error-message
+            [control]="control.get('value')"
+            message="Value is required">
+          </app-form-error-message>
+        </div>
+
+
+        <button type="button" class="delete-param" (click)="removeParam(index)">
+          <p>delete param</p>
+          <app-custom-icons [name]="'trash'" [size]="25"></app-custom-icons>
+        </button>
+
+      </div>
+
+    }
+
+    <button type="button" class="add-param" (click)="addParam()">Add param</button>
+
+  </form>
+
+  <div class="final-url-container">
+    <p>Final URL: </p>
+    <p [innerHTML]="finalUrl() | highlightUrl"></p>
+
+    @if (finalUrl()) {
+      <p>Url characters count: <b>{{ urlLength() }}</b> </p>
+
+      <div class="controls">
+        <button (click)="copyUrl()" class="copy-url">Copy URL</button>
+        <button (click)="saveUrl()" class="save-url">Save URL</button>
+      </div>
+
+    }
+  </div>
+
+</section>

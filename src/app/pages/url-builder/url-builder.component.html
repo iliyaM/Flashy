@@ -1,0 +1,13 @@
+<section class="url-builder">
+  <div>
+    <app-url-builder-form></app-url-builder-form>
+  </div>
+  <div class="history-component">
+    @defer (when httpService.historyItems().length > 0) {
+      <app-url-history></app-url-history>
+    } @placeholder {
+      <p class="text-muted">Save item to see history...</p>
+    }
+  </div>
+
+</section>

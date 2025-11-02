@@ -1,0 +1,8 @@
+@use "../../../../colors" as colors;
+
+span.error {
+  display: block;
+  color: colors.$error-color;
+  font-size: 1.1em;
+  margin: 5px 0 15px 0;
+}

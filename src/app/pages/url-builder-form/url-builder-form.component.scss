@@ -1,0 +1,95 @@
+@use "../../../colors" as colors;
+@use "../../../mixins" as mixins;
+
+section.url-builder-form {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1em;
+
+  h1 {
+    margin: 0;
+    padding-bottom: 1em;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      padding-bottom: 0.5em;
+    }
+
+    input {
+      @include mixins.input();
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+
+    div.param-group {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 1em;
+
+      div.param-container {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          display: flex;
+          align-items: center;
+          margin-right: 1em;
+          padding-bottom: 0;
+
+          p {
+            width: 200px;
+            margin: 0;
+            padding-right: 0.5em;
+          }
+
+          input {
+            width: 100%;
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      button.delete-param {
+        @include mixins.button(colors.$error-color, colors.$light-color);
+      }
+    }
+
+    button.add-param {
+      width: 200px;
+      margin: 0 auto;
+      @include mixins.button(colors.$purple-color, colors.$light-color);
+    }
+
+  }
+
+  div.final-url-container {
+    display: flex;
+    flex-direction: column;
+
+    div.controls {
+      display: flex;
+      align-items: center;
+
+      button.save-url,
+      button.copy-url {
+        width: 200px;
+        font-weight: bold;
+        @include mixins.button(colors.$yellow-color, colors.$white-color);
+      }
+
+      button.save-url, {
+        margin-left: 1em;
+        @include mixins.button(colors.$success-color, colors.$white-color);
+      }
+    }
+
+  }
+
+}
+
+

@@ -1,0 +1,13 @@
+section.url-builder {
+  display: flex;
+  width: 100%;
+
+  div {
+    width: 1000px;
+
+    &.history-component {
+      width: 750px;
+      margin-left: 50px;
+    }
+  }
+}

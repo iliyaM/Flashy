@@ -1,0 +1,77 @@
+@use "colors" as colors;
+
+// Default fallback
+@mixin button($bg: #1db954, $color: #fff) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+  background-color: $bg;
+  color: $color;
+
+  transition: all 0.3s;
+
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+  i,
+  svg {
+    font-size: 1.2rem;
+    display: inline-block;
+  }
+}
+
+@mixin input(
+  $text-color: colors.$primary-text-color,
+  $bg-color: transparent,
+  $border-color: colors.$border-color,
+  $hover-border-color: colors.$primary-text-color,
+  $focus-border-color: colors.$secondary-text-color,
+  $placeholder-color: colors.$secondary-text-color,
+  $disabled-bg-color: colors.$light-color
+) {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+
+  color: $text-color;
+  background: $bg-color;
+  border: 1px solid $border-color;
+  transition: all 0.3s;
+
+  &::placeholder {
+    color: $placeholder-color;
+    opacity: 0.7;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-color: $hover-border-color;
+  }
+
+  &:focus {
+    border-color: $focus-border-color;
+  }
+
+  &:disabled {
+    background: $disabled-bg-color;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
