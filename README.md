@@ -18,7 +18,7 @@ This project is a small Angular application to build URLs with dynamic UTM param
 1. Clone the repository:
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/iliyaM/Flashy
 cd <project-folder>
 ```
 
